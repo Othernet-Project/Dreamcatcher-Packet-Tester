@@ -1,0 +1,44 @@
+What is Dreamcatcher Chat?
+------------------------------------------------------------------------
+
+Dreamcatcher Chat is an application developed for the Dreamcatcher 3
+board enabling users to exchange text messages over a wide range
+of radio frequencies.
+
+The application achieves this by controlling both the mixer and radio
+peripherals present on the device.
+The software uses the libsoc library to control the GPIO from
+userspace. The driver controlling the radio is ported from the SX1280
+example provided by Semtech for the mbed platform. The driver
+which controls the mixer is ported from the HackRF library.
+
+This software was developed to explore the possibilities offered by
+the Dreamcatcher hardware as well as providing a quick way to
+experiment with the device.
+
+How is Dreamcatcher Chat licenced?
+------------------------------------------------------------------------
+
+Dreamcatcher Chat is licenced under the GPLv2, please see the COPYING file for
+futher details.
+
+How do I build Dreamcatcher Chat?
+------------------------------------------------------------------------
+
+1) Make and install libsoc (follow the instructions in the folder)
+2) Make sure the libsoc library is loaded (run ldconfig)
+3) cd into DreamcatcherChat
+4) make
+5) run "chat" with superuser privileges
+
+
+Dependencies
+------------------------------------------------------------------------
+
+- pthreads
+- libsoc
+
+Authors
+------------------------------------------------------------------------
+Fausto Annicchiarico Petruzzelli < petruzzelli_dot_fausto_at_gmail_dot_com>
+Luigi Zevola < luigi_dot_zevola_at_gmail_dot_com>
