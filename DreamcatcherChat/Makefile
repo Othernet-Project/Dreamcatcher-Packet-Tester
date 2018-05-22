@@ -2,7 +2,7 @@ CC = g++
 CFLAGS = -Wall -g
 INCLUDES = -I./SX1280Lib/ -I ./mbed_port/ -I./RFFC5072Lib/
 LFLAGS = 
-LIBS = -lsoc -lpthread
+LIBS = -l:libsoc.a -lpthread
 
 SUBDIRS = . ./SX1280Lib/ ./mbed_port/ ./RFFC5072Lib/
 DIRS := . $(shell find $(SUBDIR) -type d)
