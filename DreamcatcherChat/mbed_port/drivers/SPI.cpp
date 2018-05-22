@@ -3,7 +3,7 @@
 SPI::SPI(PinName mosi, PinName miso, PinName sclk, PinName ssel)
 {
 	_bits = 8;
-    if( (_fd = ::open("/dev/spidev32764.0", O_RDWR)) < 0) {
+    if( (_fd = ::open("/dev/spidev2.0", O_RDWR)) < 0) {
 		fprintf(stderr,"Unable to open SPI device\r\n");
 	}
 	usleep(100000);
