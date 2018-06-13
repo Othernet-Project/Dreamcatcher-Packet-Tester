@@ -2,8 +2,8 @@
 #define MBED_GPIO_IRQ_API_H
 
 #include "gpio.h"
-#include "libsoc_gpio.h"
-#include "libsoc_debug.h"
+#include <libsoc_gpio.h>
+#include <libsoc_debug.h>
 
 #ifdef __cplusplus
 extern "C" {

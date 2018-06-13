@@ -21,8 +21,8 @@
 #include <unistd.h>
 #include "gpio.h"
 
-#include "libsoc_gpio.h"
-#include "libsoc_debug.h"
+#include <libsoc_gpio.h>
+#include <libsoc_debug.h>
 
 class DigitalOut {
 

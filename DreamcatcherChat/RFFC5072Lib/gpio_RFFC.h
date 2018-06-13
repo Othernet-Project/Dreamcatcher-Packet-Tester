@@ -23,8 +23,9 @@
 #define __GPIO_RFFC_H__
 
 #include <stdbool.h>
-#include "libsoc_gpio.h"
-#include "libsoc_debug.h"
+#include <cstdlib>
+#include <libsoc_gpio.h>
+#include <libsoc_debug.h>
 #include "../mbed_port/drivers/gpio.h"
 
 #ifdef __cplusplus

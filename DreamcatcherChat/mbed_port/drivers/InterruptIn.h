@@ -17,8 +17,9 @@
 #define MBED_INTERRUPTIN_H
 
 #include "Callback.h"
-#include "libsoc_gpio.h"
-#include "libsoc_debug.h"
+#include <cstdlib>
+#include <libsoc_gpio.h>
+#include <libsoc_debug.h>
 #include "gpio_irq_api.h"
 #include "gpio.h"
 /** \addtogroup drivers */
