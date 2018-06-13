@@ -29,7 +29,7 @@ Maintainer: Miguel Luis, Gregory Cristian and Matthieu Verdy
                 dio = new InterruptIn( pinName );    \
             }
 
-int intDIO1(void *){
+void intDIO1(void *){
 	printf("DIO1 Interrupt");
 	//SX1280::OnDioIrq();
 }
