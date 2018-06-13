@@ -262,7 +262,7 @@ void SX1280Hal::WriteRegister( uint16_t address, uint8_t *buffer, uint16_t size 
         //{
         //    RadioSpi->write( buffer[i] );
         //}
-		unsigned char buffer_transfer[]={RADIO_WRITE_REGISTER,( address & 0xFF00 ) >> 8, address & 0x00FF};
+		unsigned char buffer_transfer[]={RADIO_WRITE_REGISTER,(unsigned char) ((address & 0xFF00) >> 8), (unsigned char) (address & 0x00FF) };
 		RadioSpi->writeBuffer(buffer_transfer,3,buffer,size);
 
         //RadioNss = 1;
@@ -291,7 +291,7 @@ void SX1280Hal::ReadRegister( uint16_t address, uint8_t *buffer, uint16_t size )
         //{
         //    buffer[i] = RadioSpi->write( 0 );
         //}
-		unsigned char buffer_transfer[]={RADIO_READ_REGISTER,( address & 0xFF00 ) >> 8, address & 0x00FF,0};
+		unsigned char buffer_transfer[]={RADIO_READ_REGISTER,(unsigned char) (( address & 0xFF00 ) >> 8), (unsigned char) (address & 0x00FF),0};
 		RadioSpi->readCommand(buffer_transfer,4,buffer,size);
         
 		//RadioNss = 1;

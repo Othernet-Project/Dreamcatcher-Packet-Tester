@@ -703,7 +703,7 @@ void SX1280::SetRangingIdLength( RadioRangingIdCheckLengths_t length )
 
 void SX1280::SetDeviceRangingAddress( uint32_t address )
 {
-    uint8_t addrArray[] = { address >> 24, address >> 16, address >> 8, address };
+    uint8_t addrArray[] = { (uint8_t) (address >> 24), (uint8_t) (address >> 16), (uint8_t) (address >> 8), (uint8_t) (address) };
 
     switch( GetPacketType( true ) )
     {
@@ -717,7 +717,7 @@ void SX1280::SetDeviceRangingAddress( uint32_t address )
 
 void SX1280::SetRangingRequestAddress( uint32_t address )
 {
-    uint8_t addrArray[] = { address >> 24, address >> 16, address >> 8, address };
+    uint8_t addrArray[] = { (uint8_t) (address >> 24), (uint8_t) (address >> 16), (uint8_t) (address >> 8), (uint8_t) (address) };
 
     switch( GetPacketType( true ) )
     {
