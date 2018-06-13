@@ -22,8 +22,14 @@ How is Dreamcatcher Chat licenced?
 Dreamcatcher Chat is licenced under the GPLv2, please see the COPYING file for
 futher details.
 
+The libraries used (SX1280 code from semtech and RFFC driver from HackRF) and 
+any local modifications to those continue to be licensed under their respective original licenses.
+
 How do I build Dreamcatcher Chat?
 ------------------------------------------------------------------------
+
+(requires debian stretch or later, kernel 4.14 or later,
+ will not work on kernel 4.10, or debian jessie or older)
 
 1) Install libsoc and libsoc-dev: sudo apt install libsoc2 libsoc-dev
 
@@ -31,6 +37,7 @@ How do I build Dreamcatcher Chat?
    sudo apt install libsoc-dev libsoc2
 
 2) make
+
 3) run "chat" with superuser privileges
 
    sudo ./chat
