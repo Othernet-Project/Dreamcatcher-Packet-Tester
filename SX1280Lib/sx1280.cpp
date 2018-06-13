@@ -61,7 +61,7 @@ void SX1280::Init( void )
 
 void SX1280::SetRegistersDefault( void )
 {
-    for( int16_t i = 0; i < sizeof( RadioRegsInit ) / sizeof( RadioRegisters_t ); i++ )
+    for( uint16_t i = 0; i < sizeof( RadioRegsInit ) / sizeof( RadioRegisters_t ); i++ )
     {
         WriteRegister( RadioRegsInit[i].Addr, RadioRegsInit[i].Value );
     }
@@ -843,7 +843,7 @@ void SX1280::SetPollingMode( void )
 int32_t SX1280::complement2( const uint32_t num, const uint8_t bitCnt )
 {
     int32_t retVal = ( int32_t )num;
-    if( num >= 2<<( bitCnt - 2 ) )
+    if( num >= (uint32_t) (2<<( bitCnt - 2 )) )
     {
         retVal -= 2<<( bitCnt - 1 );
     }
