@@ -323,7 +323,7 @@ int main()
 {
 	bool isMaster = true;
     ModulationParams_t modulationParams; 
-	uint16_t mixer_freq = 0;
+	uint64_t mixer_freq = 0;
 	pthread_t p,c;
 	struct threadargs p_args,c_args;
 
@@ -380,10 +380,10 @@ int main()
 
 	while (!mixer_freq)
 	{
-		printf("Select operating frequency (MHz):");
-		if ((scanf("%hu",&mixer_freq)==1)&&(mixer_freq>=40)&&(mixer_freq<=6000))
+		printf("Select MIXER frequency (Hz):");
+		if ((scanf("%llu",&mixer_freq)==1)&&(mixer_freq>=40000000llu)&&(mixer_freq<=6000000000llu))
 		{
-			printf("Selected mixer frequency: %hu MHz\r\n",mixer_freq);
+			printf("Selected mixer frequency: %f MHz\r\n",((double)mixer_freq)/1000000.0);
 		    rffc5071_set_frequency(&mixer, mixer_freq);
 		}else{
 			printf("Invalid choice. Range is 40 MHz to 6 GHz\r\n");

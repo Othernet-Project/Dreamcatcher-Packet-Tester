@@ -213,12 +213,12 @@ void rffc5071_enable(rffc5071_driver_t* const drv)  {
 	rffc5071_regs_commit(drv);
 }
 
-#define LO_MAX 5400
-#define REF_FREQ 52
+#define LO_MAX 5400000000
+#define REF_FREQ 52000000
 #define FREQ_ONE_MHZ (1000*1000)
 
 /* configure frequency synthesizer in integer mode (lo in MHz) */
-uint64_t rffc5071_config_synth_int(rffc5071_driver_t* const drv, uint16_t lo) {
+uint64_t rffc5071_config_synth_int(rffc5071_driver_t* const drv, uint64_t lo) {
 	uint8_t lodiv;
 	uint16_t fvco;
 	uint8_t fbkdiv;
@@ -226,7 +226,7 @@ uint64_t rffc5071_config_synth_int(rffc5071_driver_t* const drv, uint16_t lo) {
 	uint64_t tune_freq_hz;
 	uint16_t p1nmsb;
 	uint8_t p1nlsb;
-	
+
 	/* Calculate n_lo */
 	uint8_t n_lo = 0;
 	uint16_t x = LO_MAX / lo;
@@ -243,7 +243,7 @@ uint64_t rffc5071_config_synth_int(rffc5071_driver_t* const drv, uint16_t lo) {
 	 * maybe pump?) can be changed back after enable in order to
 	 * improve phase noise, since the VCO will already be stable
 	 * and will be unaffected. */
-	if (fvco > 3200) {
+	if (fvco > 3200000000) {
 		fbkdiv = 4;
 		set_RFFC5071_PLLCPL(drv, 3);
 	} else {
@@ -256,8 +256,8 @@ uint64_t rffc5071_config_synth_int(rffc5071_driver_t* const drv, uint16_t lo) {
 
 	p1nmsb = (tmp_n >> 13ULL) & 0xffff;
 	p1nlsb = (tmp_n >> 5ULL) & 0xff;
-	
-	tune_freq_hz = (REF_FREQ * (tmp_n >> 5ULL) * fbkdiv * FREQ_ONE_MHZ)
+
+	tune_freq_hz = (REF_FREQ * (tmp_n >> 5ULL) * fbkdiv )
 			/ (lodiv * (1 << 24ULL));
 
 	/* Path 2 */
@@ -273,11 +273,11 @@ uint64_t rffc5071_config_synth_int(rffc5071_driver_t* const drv, uint16_t lo) {
 }
 
 /* !!!!!!!!!!! hz is currently ignored !!!!!!!!!!! */
-uint64_t rffc5071_set_frequency(rffc5071_driver_t* const drv, uint16_t mhz) {
+uint64_t rffc5071_set_frequency(rffc5071_driver_t* const drv, uint64_t hz) {
 	uint32_t tune_freq;
 
 	rffc5071_disable(drv);
-	tune_freq = rffc5071_config_synth_int(drv, mhz);
+	tune_freq = rffc5071_config_synth_int(drv, hz);
 	rffc5071_enable(drv);
 
 	return tune_freq;
