@@ -25,11 +25,17 @@ futher details.
 How do I build Dreamcatcher Chat?
 ------------------------------------------------------------------------
 
-1) Make and install libsoc (follow the instructions in the folder)
-2) Make sure the libsoc library is loaded (run ldconfig)
-3) cd into DreamcatcherChat
-4) make
-5) run "chat" with superuser privileges
+1) Install libsoc and libsoc-dev: sudo apt install libsoc2 libsoc-dev
+
+   sudo apt update
+   sudo apt install libsoc-dev libsoc2
+
+2) cd into DreamcatcherChat
+3) make
+4) run "chat" with superuser privileges
+
+   sudo ./chat
+
 
 
 Dependencies
