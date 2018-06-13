@@ -287,9 +287,9 @@ void SX1280::SetModulationParams( ModulationParams_t *modParams )
             buf[2] = modParams->Params.Ble.ModulationShaping;
             break;
         case PACKET_TYPE_NONE:
-            buf[0] = NULL;
-            buf[1] = NULL;
-            buf[2] = NULL;
+            buf[0] = 0;
+            buf[1] = 0;
+            buf[2] = 0;
             break;
     }
     WriteCommand( RADIO_SET_MODULATIONPARAMS, buf, 3 );
@@ -326,8 +326,8 @@ void SX1280::SetPacketParams( PacketParams_t *packetParams )
             buf[2] = packetParams->Params.LoRa.PayloadLength;
             buf[3] = packetParams->Params.LoRa.Crc;
             buf[4] = packetParams->Params.LoRa.InvertIQ;
-            buf[5] = NULL;
-            buf[6] = NULL;
+            buf[5] = 0;
+            buf[6] = 0;
             break;
         case PACKET_TYPE_FLRC:
             buf[0] = packetParams->Params.Flrc.PreambleLength;
@@ -343,18 +343,18 @@ void SX1280::SetPacketParams( PacketParams_t *packetParams )
             buf[1] = packetParams->Params.Ble.CrcLength;
             buf[2] = packetParams->Params.Ble.BleTestPayload;
             buf[3] = packetParams->Params.Ble.Whitening;
-            buf[4] = NULL;
-            buf[5] = NULL;
-            buf[6] = NULL;
+            buf[4] = 0;
+            buf[5] = 0;
+            buf[6] = 0;
             break;
         case PACKET_TYPE_NONE:
-            buf[0] = NULL;
-            buf[1] = NULL;
-            buf[2] = NULL;
-            buf[3] = NULL;
-            buf[4] = NULL;
-            buf[5] = NULL;
-            buf[6] = NULL;
+            buf[0] = 0;
+            buf[1] = 0;
+            buf[2] = 0;
+            buf[3] = 0;
+            buf[4] = 0;
+            buf[5] = 0;
+            buf[6] = 0;
             break;
     }
     WriteCommand( RADIO_SET_PACKETPARAMS, buf, 7 );
