@@ -30,9 +30,8 @@ How do I build Dreamcatcher Chat?
    sudo apt update
    sudo apt install libsoc-dev libsoc2
 
-2) cd into DreamcatcherChat
-3) make
-4) run "chat" with superuser privileges
+2) make
+3) run "chat" with superuser privileges
 
    sudo ./chat
 
