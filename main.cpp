@@ -250,7 +250,6 @@ void broadcast_message()
 
 void send_message()
 {
-	uint16_t frame_no;
 	// A master already exists then become a slave
 	#ifdef DEBUG
     	printf( "Sending message to master\r\n" );
