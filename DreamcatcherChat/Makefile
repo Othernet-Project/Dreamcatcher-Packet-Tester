@@ -27,7 +27,7 @@ $(MAIN): $(OBJS)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $<  -o $@
 
 clean:
-	rm -rf $(GARBAGE)
+	rm -rf $(GARBAGE) $(MAIN)
 
 %clean: %
 	$(MAKE) -C $< -f $(PWD)/Makefile clean_curdir
