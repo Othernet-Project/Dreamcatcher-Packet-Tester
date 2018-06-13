@@ -103,7 +103,8 @@ SX1280Hal::~SX1280Hal( void )
 {
     if( this->RadioSpi != NULL )
     {
-        delete RadioSpi;
+        // base class has no non-virtual destructor
+        //delete RadioSpi;
     }
     if( DIO1 != NULL )
     {
