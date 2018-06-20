@@ -370,7 +370,7 @@ int main()
     memset( &Buffer, 0x00, BufferSize );
 
     modulationParams.PacketType                  = PACKET_TYPE_LORA;
-    modulationParams.Params.LoRa.SpreadingFactor = LORA_SF7;
+    modulationParams.Params.LoRa.SpreadingFactor = LORA_SF12;
     modulationParams.Params.LoRa.Bandwidth       = LORA_BW_0400;
     modulationParams.Params.LoRa.CodingRate      = LORA_CR_4_5;
 
