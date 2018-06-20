@@ -138,6 +138,7 @@ SX1280Hal Radio( 999, 999, 999, 999, 36, 35, 999, 999,115, &callbacks );
 DigitalOut ANT_SW( 999 );
 DigitalOut TxLed( 101 );
 DigitalOut RxLed( 999 );
+DigitalOut DirectLed( 116 );
 
 /*!
  * \brief Define IO for Unused Pin
@@ -328,6 +329,8 @@ int main()
 	struct threadargs p_args,c_args;
 
 	printf( "\n\n\r     Dreamcatcher Chat (v.%s)\n\n\r", "0.0 alpha" );
+
+        DirectLed = 1;
 
 	gpio_rffc5072_select=(gpio_t_rffc)malloc(sizeof(struct gpio_rffc));	
 	if (gpio_rffc5072_select==NULL)
