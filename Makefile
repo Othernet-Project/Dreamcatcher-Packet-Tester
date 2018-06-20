@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -Wall -g
+CFLAGS = -Wall -g -flto
 INCLUDES = -I./SX1280Lib/ -I./mbed_port/ -I./RFFC5072Lib/
 LFLAGS =
 LIBS = -lsoc -lpthread
