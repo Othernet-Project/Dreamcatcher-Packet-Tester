@@ -18,6 +18,9 @@ MAIN = chat
 all:    $(MAIN)
 	@echo  Program has been compiled
 
+static: CFLAGS += -static
+static: all
+
 $(MAIN): $(OBJS)
 	$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
 
