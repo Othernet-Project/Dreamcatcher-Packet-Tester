@@ -149,12 +149,12 @@ DigitalOut SD_CS( 999 );     // MBED description of pin
 /*!
  * \brief Number of tick size steps for tx timeout
  */
-#define TX_TIMEOUT_VALUE                            100 // ms
+#define TX_TIMEOUT_VALUE                            1000 // ms
 
 /*!
  * \brief Number of tick size steps for rx timeout
  */
-#define RX_TIMEOUT_VALUE                            100 // ms
+#define RX_TIMEOUT_VALUE                            1000 // ms
 
 /*!
  * \brief Size of ticks (used for Tx and Rx timeout)
