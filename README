@@ -36,12 +36,45 @@ How do I build Dreamcatcher Chat?
    sudo apt update
    sudo apt install libsoc-dev libsoc2
 
-2) make
+2) get the code
 
-3) run "chat" with superuser privileges
+git clone https://github.com/Outernet-Project/Dreamcatcher-Packet-Tester
+cd Dreamcatcher-Packet-Tester
+
+
+3) make
+
+or to build a static binary:
+
+make static
+
+
+4) run "chat" with superuser privileges
 
    sudo ./chat
 
+
+How do I run chat without building it everytime?
+------------------------------------------------------------------------
+
+You have two alternatives:
+
+1) compile a regular exeuctable as above (using make) and then copy the compiled
+binary to another Dreamcatcher+Armbian system, install the required library:
+
+sudo apt update; sudo apt install libsoc2
+
+and then run the chat binary:
+
+sudo ./chat
+
+Alternatively, 
+
+2) you can build a _static_ binary (using make static), then just copy this static binary
+to another Dreamcatcher+Armbian system. No library installation is required. So just run
+the chat binary:
+
+sudo ./chat
 
 
 Dependencies
